@@ -45,6 +45,6 @@ sunsetrise_yr <- function(year, lon_sign = -1, lon_deg, lon_min, lat_sign = 1, l
   header <- read_header(rs)
   body <- read_body(rs)
 
-  message(header)
+  # message(header)
   body
 }

@@ -18,8 +18,11 @@ read_body <- function(rs){
             sapply(starts, function(ii)
               trimws(substring(x, ii, ii + field_length - 1))))
 
-  body <- t(data.frame(body))
+  body <- t(data.frame(body, stringsAsFactors = FALSE))
   row.names(body) <-  NULL
   # body <- body[4:nrow(body),]
-  body
+  body_names <- body[1,]
+  body <- data.frame(body, stringsAsFactors = FALSE)
+  names(body) <- body_names
+  body[-1,]
 }
