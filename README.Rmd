@@ -40,3 +40,7 @@ sunsetrise_yr(year = 2015,
               lat_min = 5,
               tz = 5)
 ```
+
+## Contributors
+
+Contributions welcome in the form of pull requests and issues!

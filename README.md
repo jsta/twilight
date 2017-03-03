@@ -96,3 +96,8 @@ sunsetrise_yr(year = 2015,
 #> 34 1602 0443           1629 0343           1707 0342
 #> 35
 ```
+
+Contributors
+------------
+
+Contributions welcome in the form of pull requests and issues!
