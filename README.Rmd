@@ -1,0 +1,31 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# twilight
+
+The goal of twilight is to provide an R wrapper for the sun/moon rise/set data at [http://aa.usno.navy.mil/data/docs/RS_OneYear.php](http://aa.usno.navy.mil/data/docs/RS_OneYear.php)
+
+## Example
+
+```{r example}
+library(twilight)
+sunsetrise_yr(year = 2015,
+              lon_deg = 80,
+              lon_min = 26,
+              lat_deg = 25,
+              lat_min = 5,
+              tz = 5)
+```
