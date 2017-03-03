@@ -2,10 +2,20 @@
 twilight
 ========
 
+[![Project Status: WIP - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/twilight)](https://cran.r-project.org/package=twilight) [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/twilight)](https://cran.r-project.org/package=twilight)
+
 The goal of twilight is to provide an R wrapper for the sun/moon rise/set data at <http://aa.usno.navy.mil/data/docs/RS_OneYear.php>
 
-Example
--------
+Installation
+------------
+
+``` r
+# install.packages("devtools")
+devtools::install_github("jsta/twilight")
+```
+
+Usage
+-----
 
 ``` r
 library(twilight)
