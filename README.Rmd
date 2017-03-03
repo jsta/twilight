@@ -39,6 +39,13 @@ sunsetrise_yr(year = 2015,
               lat_deg = 25,
               lat_min = 5,
               tz = 5)
+
+tw_daylength(year = 2015,
+              lon_deg = 80,
+              lon_min = 26,
+              lat_deg = 25,
+              lat_min = 5,
+              tz = 5)
 ```
 
 ## Contributors

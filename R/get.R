@@ -48,3 +48,21 @@ sunsetrise_yr <- function(year, lon_sign = -1, lon_deg, lon_min, lat_sign = 1, l
   # message(header)
   body
 }
+
+#' @export
+# tw_daylength(year = 2015, lon_deg = 80, lon_min = 26, lat_deg = 25, lat_min = 5, tz = 5)
+tw_daylength <- function(...){
+  res <- sunsetrise_yr(...)
+
+  day_from_rise_set <- function(x){
+    2400 -
+      (as.numeric(strsplit(x, " ")[[1]][1]) -
+         as.numeric(strsplit(x, " ")[[1]][2]))
+  }
+
+  dt <- res[3:nrow(res),]
+  res[3:nrow(res),] <- apply(dt, 2, function(x) sapply(x, day_from_rise_set))
+  res <- res[c(-1, -2),]
+  row.names(res) <- 1:nrow(res)
+  res
+}
