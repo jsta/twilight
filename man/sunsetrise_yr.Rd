@@ -26,6 +26,10 @@ sunsetrise_yr(year, lon_sign = -1, lon_deg = NA, lon_min = NA,
 \item{tz}{integer timezone}
 
 \item{tz_sign}{integer}
+
+\item{state}{character two letter United States state abbreviation}
+
+\item{city}{character}
 }
 \value{
 A 3 x 365 data.frame of sunrise, sunset, date where times are in GMT

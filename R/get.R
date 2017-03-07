@@ -9,6 +9,8 @@
 #' @param lat_min integer minute
 #' @param tz integer timezone
 #' @param tz_sign integer
+#' @param state character two letter United States state abbreviation
+#' @param city character
 #' @export
 #' @references \url{http://aa.usno.navy.mil/data/docs/RS_OneYear.php}
 #' @return A 3 x 365 data.frame of sunrise, sunset, date where times are in GMT
@@ -18,7 +20,9 @@
 #' sunsetrise_yr(year = 2015, state = "FL", city = "Key Largo")
 #' }
 
-sunsetrise_yr <- function(year, lon_sign = -1, lon_deg = NA, lon_min = NA, lat_sign = 1, lat_deg = NA, lat_min = NA, tz = NA, tz_sign = 1, state = NA, city = NA){
+sunsetrise_yr <- function(year, lon_sign = -1, lon_deg = NA, lon_min = NA,
+                          lat_sign = 1, lat_deg = NA, lat_min = NA, tz = NA,
+                          tz_sign = 1, state = NA, city = NA){
 
   url <- "http://aa.usno.navy.mil"
 

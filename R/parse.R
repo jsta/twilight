@@ -28,8 +28,10 @@ tw_daylength <- function(...){
     }
   }
 
-  dt <- res[3:nrow(res),]
-  res[3:nrow(res),] <- apply(dt, 2, function(x) sapply(x, day_from_rise_set))
+  ind <- seq_len(nrow(res))[-1 * c(1, 2)]
+  # ind <- 3:nrow(res)
+  dt <- res[ind,]
+  res[ind,] <- apply(dt, 2, function(x) sapply(x, day_from_rise_set))
   res <- res[c(-1, -2),]
   row.names(res) <- 1:nrow(res)
   res
