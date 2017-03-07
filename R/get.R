@@ -49,8 +49,13 @@ sunsetrise_yr <- function(year, lon_sign = -1, lon_deg, lon_min, lat_sign = 1, l
   body
 }
 
+#' tw_daylength
+#' @description Daylength in hhmm format
 #' @export
-# tw_daylength(year = 2015, lon_deg = 80, lon_min = 26, lat_deg = 25, lat_min = 5, tz = 5)
+#' @param ... arguments passed to sunsetrise_yr
+#' @examples \dontrun{
+#' tw_daylength(year = 2015, lon_deg = 80, lon_min = 26, lat_deg = 25, lat_min = 5, tz = 5)
+#' }
 tw_daylength <- function(...){
   res <- sunsetrise_yr(...)
 
