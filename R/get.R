@@ -30,6 +30,11 @@ sunsetrise_yr <- function(year, lon_sign = -1, lon_deg = NA, lon_min = NA,
   is_lonlat_query <- all(!is.na(
     c(lon_sign, lon_deg, lon_min, lat_sign, lat_deg, lat_min, tz, tz_sign)))
 
+  if(!(is_place_query | is_lonlat_query)){
+    stop("Must specify a complete set of either a state/city pair or
+ geographic coordinate arguments.")
+  }
+
   if(is_place_query & is_lonlat_query){
     stop("Must specify either a state/city or
  geographic coordinates but not both.")
