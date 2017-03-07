@@ -22,14 +22,25 @@ sunsetrise_yr <- function(year, lon_sign = -1, lon_deg = NA, lon_min = NA, lat_s
 
   url <- "http://aa.usno.navy.mil"
 
-  if(all(!is.na(c(state, city)))){
+  is_place_query <- all(!is.na(c(state, city)))
+  is_lonlat_query <- all(!is.na(
+    c(lon_sign, lon_deg, lon_min, lat_sign, lat_deg, lat_min, tz, tz_sign)))
+
+  if(is_place_query & is_lonlat_query){
+    stop("Must specify either a state/city or
+ geographic coordinates but not both.")
+  }
+
+  if(is_place_query){
     query <-   list(
       ID = "JS",
       year = year,
       task = 0,
       state = state,
       place = city)
-  }else{
+  }
+
+  if(is_lonlat_query){
     query <-   list(
       ID = "JS",
       year = year,
