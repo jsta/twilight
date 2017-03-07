@@ -7,7 +7,11 @@ read_header <- function(rs){
 
 read_body <- function(rs){
   body_begin <- grep("jan", tolower(rs[[1]]))
-  body <- rs[[1]][body_begin:length(rs[[1]])]
+
+  body_rle <- rle(sapply(rs, nchar)[,1])$lengths
+  body_end   <- min(c(length(rs[[1]]), sum(body_rle[1:which.max(body_rle)])))
+
+  body <- rs[[1]][body_begin:body_end]
   body <- lapply(body, function(x) substring(x, 3, nchar(x)))
 
   field_length <- 11

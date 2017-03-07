@@ -4,8 +4,9 @@
 \alias{sunsetrise_yr}
 \title{sunsetrise_yr}
 \usage{
-sunsetrise_yr(year, lon_sign = -1, lon_deg, lon_min, lat_sign = 1, lat_deg,
-  lat_min, tz, tz_sign = 1)
+sunsetrise_yr(year, lon_sign = -1, lon_deg = NA, lon_min = NA,
+  lat_sign = 1, lat_deg = NA, lat_min = NA, tz = NA, tz_sign = 1,
+  state = NA, city = NA)
 }
 \arguments{
 \item{year}{integer}
@@ -35,6 +36,8 @@ sunsetrise_yr
 \examples{
 \dontrun{
 sunsetrise_yr(year = 2015, lon_deg = 80, lon_min = 26, lat_deg = 25, lat_min = 5, tz = 5)
+
+sunsetrise_yr(year = 2015, state = "FL", city = "Key Largo")
 }
 }
 \references{

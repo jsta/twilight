@@ -14,24 +14,35 @@
 #' @return A 3 x 365 data.frame of sunrise, sunset, date where times are in GMT
 #' @examples \dontrun{
 #' sunsetrise_yr(year = 2015, lon_deg = 80, lon_min = 26, lat_deg = 25, lat_min = 5, tz = 5)
+#'
+#' sunsetrise_yr(year = 2015, state = "FL", city = "Key Largo")
 #' }
 
-sunsetrise_yr <- function(year, lon_sign = -1, lon_deg, lon_min, lat_sign = 1, lat_deg, lat_min, tz, tz_sign = 1){
+sunsetrise_yr <- function(year, lon_sign = -1, lon_deg = NA, lon_min = NA, lat_sign = 1, lat_deg = NA, lat_min = NA, tz = NA, tz_sign = 1, state = NA, city = NA){
 
   url <- "http://aa.usno.navy.mil"
 
-  query <-   list(
-    ID = "JS",
-    year = year,
-    task = 0,
-    lon_sign = lon_sign,
-    lon_deg = lon_deg,
-    lon_min = lon_min,
-    lat_sign = lat_sign,
-    lat_deg = lat_deg,
-    lat_min = lat_min,
-    tz = tz,
-    tz_sign = tz_sign)
+  if(all(!is.na(c(state, city)))){
+    query <-   list(
+      ID = "JS",
+      year = year,
+      task = 0,
+      state = state,
+      place = city)
+  }else{
+    query <-   list(
+      ID = "JS",
+      year = year,
+      task = 0,
+      lon_sign = lon_sign,
+      lon_deg = lon_deg,
+      lon_min = lon_min,
+      lat_sign = lat_sign,
+      lat_deg = lat_deg,
+      lat_min = lat_min,
+      tz = tz,
+      tz_sign = tz_sign)
+  }
 
   rs <- httr::GET(url, path = "cgi-bin/aa_rstablew.pl", query = query)
 
@@ -47,27 +58,4 @@ sunsetrise_yr <- function(year, lon_sign = -1, lon_deg, lon_min, lat_sign = 1, l
 
   # message(header)
   body
-}
-
-#' tw_daylength
-#' @description Daylength in hhmm format
-#' @export
-#' @param ... arguments passed to sunsetrise_yr
-#' @examples \dontrun{
-#' tw_daylength(year = 2015, lon_deg = 80, lon_min = 26, lat_deg = 25, lat_min = 5, tz = 5)
-#' }
-tw_daylength <- function(...){
-  res <- sunsetrise_yr(...)
-
-  day_from_rise_set <- function(x){
-    2400 -
-      (as.numeric(strsplit(x, " ")[[1]][1]) -
-         as.numeric(strsplit(x, " ")[[1]][2]))
-  }
-
-  dt <- res[3:nrow(res),]
-  res[3:nrow(res),] <- apply(dt, 2, function(x) sapply(x, day_from_rise_set))
-  res <- res[c(-1, -2),]
-  row.names(res) <- 1:nrow(res)
-  res
 }
