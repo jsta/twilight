@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 # twilight
 
-[![Project Status: WIP - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/twilight)](https://cran.r-project.org/package=twilight) 
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/twilight)](https://cran.r-project.org/package=twilight)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jsta/twilight?branch=master&svg=true)](https://ci.appveyor.com/project/jsta/twilight)
@@ -33,9 +33,17 @@ devtools::install_github("jsta/twilight")
 
 ## Usage
 
-### Raw sun set/rise data
-```{r example}
+### Load package
+
+```{r load package}
 library(twilight)
+```
+
+### Geographic Coordinates
+
+#### Raw Sunrise/set
+
+```{r geo coordinates raw}
 head(
   sunsetrise_yr(year = 2015,
               lon_deg = 80,
@@ -47,8 +55,8 @@ head(
 
 ```
 
-### Day length data
-```{r }
+#### Day Length
+```{r geo day length}
 head(
   tw_daylength(year = 2015,
               lon_deg = 80,
@@ -58,6 +66,28 @@ head(
               tz = 5)
 )
 ```
+
+### United State Place Names
+#### Raw Sunrise/set
+
+```{r place coordinates raw}
+head(
+  sunsetrise_yr(year = 2015,
+                state = "FL",
+                city = "Key Largo")
+)
+
+```
+
+#### Day Length
+```{r place day length}
+head(
+  tw_daylength(year = 2015,
+                state = "FL",
+                city = "Key Largo")
+)
+```
+
 
 ## Contributors
 
