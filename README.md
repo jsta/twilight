@@ -2,7 +2,7 @@
 twilight
 ========
 
-[![Project Status: WIP - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/twilight)](https://cran.r-project.org/package=twilight) [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/twilight)](https://cran.r-project.org/package=twilight)
+[![Project Status: WIP - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/twilight)](https://cran.r-project.org/package=twilight) [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/twilight)](https://cran.r-project.org/package=twilight) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jsta/twilight?branch=master&svg=true)](https://ci.appveyor.com/project/jsta/twilight) [![Travis-CI Build Status](https://travis-ci.org/jsta/twilight.svg?branch=master)](https://travis-ci.org/jsta/twilight)
 
 The goal of twilight is to provide an R wrapper for the sun/moon rise/set data at <http://aa.usno.navy.mil/data/docs/RS_OneYear.php>
 
@@ -16,6 +16,8 @@ devtools::install_github("jsta/twilight")
 
 Usage
 -----
+
+### Raw sun set/rise data
 
 ``` r
 library(twilight)
@@ -95,7 +97,11 @@ sunsetrise_yr(year = 2015,
 #> 33 1602 0444 1613 0411 1628 0343 1649 0332 1706 0342
 #> 34 1602 0443           1629 0343           1707 0342
 #> 35
+```
 
+### Day length data
+
+``` r
 tw_daylength(year = 2015,
               lon_deg = 80,
               lon_min = 26,
