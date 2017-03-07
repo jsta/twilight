@@ -1,6 +1,6 @@
 Package: twilight
 Title: R interface to the USNO Sun or Moon Rise/Set Data Service
-Version: 0.0.0.9000
+Version: 0.1
 Authors@R: c(person("Joseph", "Stachelek", email = "stachel2@msu.edu", role = c("aut", "cre")))
 Description: R interface to the USNO sun or moon rise/set data service.
 Imports: rvest, httr, xml2
